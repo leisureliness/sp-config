@@ -27,3 +27,8 @@ eureka:
     service-url:
      #使用自己地址, 向eureka注册 (没有云服务地址必须加这个)
       defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+  instance:
+    #向eureka注册时使用ip注册
+    prefer-ip-address: true
+    #获取我的主机ip
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
